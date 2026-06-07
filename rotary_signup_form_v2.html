@@ -478,10 +478,7 @@
         <label class="field-label">姓名<span class="req">*</span></label>
         <input type="text" id="name" placeholder="王大明">
       </div>
-      <div>
-        <label class="field-label">分類編號</label>
-        <input type="text" id="memberId" placeholder="例：WG-2025-042">
-      </div>
+
     </div>
 
     <div class="field field-row">
@@ -528,7 +525,7 @@
         第一旗艦｜希望種子計畫（青少年教育）
       </div>
       <div class="roles-grid">
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="企業參訪主辦人">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🏭</div>
@@ -536,7 +533,7 @@
           <div class="role-card-time">⏱ 半天，一年一次</div>
           <div class="role-card-desc">開放自家工廠或公司，安排半日導覽，由員工介紹產業知識</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="職涯講師">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🎤</div>
@@ -544,7 +541,7 @@
           <div class="role-card-time">⏱ 半天，一年一次</div>
           <div class="role-card-desc">在成長營分享創業或職涯歷程，30～45 分鐘演講或座談</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="扶輪導師（輕量版）">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🤝</div>
@@ -552,7 +549,7 @@
           <div class="role-card-time">⏱ 每季 30 分鐘</div>
           <div class="role-card-desc">認養 1 位學生，每季一通電話或視訊，節日卡片鼓勵</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="頒獎典禮頒獎人">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🏅</div>
@@ -570,7 +567,7 @@
         第二旗艦｜幸福守護網（高齡關懷）
       </div>
       <div class="roles-grid">
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="居家安全稽核員">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🏠</div>
@@ -578,7 +575,7 @@
           <div class="role-card-time">⏱ 半天，每季一次</div>
           <div class="role-card-desc">與社工同行，用標準表單評估長者家中安全，不需專業背景</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="工程資源媒合人">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🔧</div>
@@ -586,7 +583,7 @@
           <div class="role-card-time">⏱ 電話聯繫，不定期</div>
           <div class="role-card-desc">媒合施工廠商，協助降低居家改善成本（適合營建業社友）</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="電話關懷志工">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">📞</div>
@@ -594,7 +591,7 @@
           <div class="role-card-time">⏱ 每月 20 分鐘</div>
           <div class="role-card-desc">認養 2～3 位長者，每月主動致電問候，回報異常給社工</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="SOS 網絡聯絡人">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🌐</div>
@@ -612,7 +609,7 @@
         第三旗艦｜夢想實現計畫（公益圓夢）
       </div>
       <div class="roles-grid">
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="夢想評審委員">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">⭐</div>
@@ -620,7 +617,7 @@
           <div class="role-card-time">⏱ 半天，一年一次</div>
           <div class="role-card-desc">參與 10 月評選會，閱讀提案並評分，給予書面或當面回饋</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="夢想認養導師">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">💛</div>
@@ -628,7 +625,7 @@
           <div class="role-card-time">⏱ 每月 1～2 次陪伴</div>
           <div class="role-card-desc">認養一個夢想案，全程陪伴執行，協助解決障礙，不必親力親為</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="資源媒合者">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🔗</div>
@@ -636,7 +633,7 @@
           <div class="role-card-time">⏱ 視需要，不定期</div>
           <div class="role-card-desc">當執行遇到障礙，發動人脈提供廠商、場地或技術支援</div>
         </label>
-        <label class="role-card" onclick="toggleCard(this)">
+        <label class="role-card">
           <input type="checkbox" value="影片故事見證人">
           <div class="role-card-check">✓</div>
           <div class="role-card-icon">🎬</div>
@@ -662,32 +659,32 @@
     <div class="field">
       <label class="field-label">方便出席的時段<span class="req">*</span>（可複選）</label>
       <div class="avail-grid" id="availGrid">
-        <label class="avail-chip" onclick="toggleChip(this)">
+        <label class="avail-chip">
           <input type="checkbox" value="平日白天">
           <div class="avail-chip-label">平日白天</div>
           <div class="avail-chip-sub">09:00–17:00</div>
         </label>
-        <label class="avail-chip" onclick="toggleChip(this)">
+        <label class="avail-chip">
           <input type="checkbox" value="平日傍晚">
           <div class="avail-chip-label">平日傍晚</div>
           <div class="avail-chip-sub">17:00–20:00</div>
         </label>
-        <label class="avail-chip" onclick="toggleChip(this)">
+        <label class="avail-chip">
           <input type="checkbox" value="週六上午">
           <div class="avail-chip-label">週六上午</div>
           <div class="avail-chip-sub">09:00–12:00</div>
         </label>
-        <label class="avail-chip" onclick="toggleChip(this)">
+        <label class="avail-chip">
           <input type="checkbox" value="週六下午">
           <div class="avail-chip-label">週六下午</div>
           <div class="avail-chip-sub">13:00–17:00</div>
         </label>
-        <label class="avail-chip" onclick="toggleChip(this)">
+        <label class="avail-chip">
           <input type="checkbox" value="週日">
           <div class="avail-chip-label">週日</div>
           <div class="avail-chip-sub">彈性時段</div>
         </label>
-        <label class="avail-chip" onclick="toggleChip(this)">
+        <label class="avail-chip">
           <input type="checkbox" value="遠端即可">
           <div class="avail-chip-label">遠端即可</div>
           <div class="avail-chip-sub">視訊或 Line</div>
@@ -709,16 +706,16 @@
     <div class="field" style="margin-top:1.25rem">
       <label class="field-label">可貢獻的資源或人脈（可複選）</label>
       <div class="resource-grid" id="resourceGrid">
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="製造業廠商人脈">製造業廠商人脈</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="營建／水電人脈">營建／水電人脈</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="醫療衛生資源">醫療衛生資源</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="教育訓練場地">教育訓練場地</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="里鄰社區人脈">里鄰社區人脈</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="媒體宣傳">媒體宣傳</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="攝影錄影技術">攝影錄影技術</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="法律財務顧問">法律財務顧問</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="餐飲贊助">餐飲贊助</label>
-        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="交通接送">交通接送</label>
+        <label class="res-tag"><input type="checkbox" value="製造業廠商人脈">製造業廠商人脈</label>
+        <label class="res-tag"><input type="checkbox" value="營建／水電人脈">營建／水電人脈</label>
+        <label class="res-tag"><input type="checkbox" value="醫療衛生資源">醫療衛生資源</label>
+        <label class="res-tag"><input type="checkbox" value="教育訓練場地">教育訓練場地</label>
+        <label class="res-tag"><input type="checkbox" value="里鄰社區人脈">里鄰社區人脈</label>
+        <label class="res-tag"><input type="checkbox" value="媒體宣傳">媒體宣傳</label>
+        <label class="res-tag"><input type="checkbox" value="攝影錄影技術">攝影錄影技術</label>
+        <label class="res-tag"><input type="checkbox" value="法律財務顧問">法律財務顧問</label>
+        <label class="res-tag"><input type="checkbox" value="餐飲贊助">餐飲贊助</label>
+        <label class="res-tag"><input type="checkbox" value="交通接送">交通接送</label>
       </div>
     </div>
 
@@ -824,20 +821,20 @@ function updateProgress(n) {
   }
 }
 
-function toggleCard(el) {
-  el.classList.toggle('selected');
-  el.querySelector('input').checked = el.classList.contains('selected');
+function setupToggle(selector, selectedClass) {
+  document.querySelectorAll(selector).forEach(function(el) {
+    var cb = el.querySelector('input[type=checkbox]');
+    el.addEventListener('click', function(e) {
+      e.preventDefault();
+      cb.checked = !cb.checked;
+      el.classList.toggle(selectedClass, cb.checked);
+    });
+  });
 }
 
-function toggleChip(el) {
-  el.classList.toggle('selected');
-  el.querySelector('input').checked = el.classList.contains('selected');
-}
-
-function toggleTag(el) {
-  el.classList.toggle('selected');
-  el.querySelector('input').checked = el.classList.contains('selected');
-}
+function toggleCard(el) {}
+function toggleChip(el) {}
+function toggleTag(el) {}
 
 function getSelected(containerId) {
   return Array.from(document.querySelectorAll('#' + containerId + ' input:checked')).map(i => i.value);
@@ -879,14 +876,13 @@ async function submitForm() {
   const email = document.getElementById('email').value;
   const company = document.getElementById('company').value;
   const expertise = document.getElementById('expertise').value;
-  const memberId = document.getElementById('memberId').value;
   const roles = Array.from(document.querySelectorAll('.role-card.selected input')).map(i => i.value).join('、');
   const availability = Array.from(document.querySelectorAll('#availGrid input:checked')).map(i => i.value).join('、');
   const totalHours = document.getElementById('totalHours').value;
   const resources = Array.from(document.querySelectorAll('#resourceGrid input:checked')).map(i => i.value).join('、');
   const notes = document.getElementById('notes').value;
 
-  const payload = { name, phone, email, company, expertise, memberId, roles, availability, totalHours, resources, notes };
+  const payload = { name, phone, email, company, expertise, roles, availability, totalHours, resources, notes };
 
   try {
     await fetch(APPS_SCRIPT_URL, {
@@ -915,6 +911,12 @@ function showSuccess(name, roles) {
   updateProgress(5);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+  setupToggle('.role-card', 'selected');
+  setupToggle('.avail-chip', 'selected');
+  setupToggle('.res-tag', 'selected');
+});
 </script>
 </body>
 </html>
