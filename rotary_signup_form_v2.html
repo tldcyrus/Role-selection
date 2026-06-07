@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>五工扶輪社 2028–2029 社友參與角色報名表</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --green-deep: #1a3d1a;
+    --green-mid: #2d6a2d;
+    --green-light: #4a9c4a;
+    --green-pale: #e8f5e8;
+    --green-mist: #f4faf4;
+    --gold: #c8960c;
+    --gold-light: #f5e6b0;
+    --ink: #1a1a1a;
+    --ink-mid: #444;
+    --ink-soft: #777;
+    --border: #d4e8d4;
+    --white: #ffffff;
+    --bg: #f7fbf7;
+  }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    min-height: 100vh;
+    padding: 0;
+  }
+
+  /* Header */
+  .page-header {
+    background: var(--green-deep);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 200px; height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .page-header::after {
+    content: '';
+    position: absolute;
+    bottom: -60px; left: -30px;
+    width: 180px; height: 180px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,.06);
+  }
+  .header-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: .12em;
+    color: rgba(255,255,255,.55);
+    border: 1px solid rgba(255,255,255,.2);
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 1.2rem;
+    font-weight: 300;
+  }
+  .header-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.5;
+    margin-bottom: .6rem;
+  }
+  .header-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,.6);
+    font-weight: 300;
+    letter-spacing: .04em;
+  }
+  .header-motto {
+    margin-top: 1.4rem;
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 12px;
+    color: rgba(255,255,255,.45);
+    font-weight: 300;
+  }
+  .header-motto span { color: var(--gold); }
+  .header-motto i { color: rgba(255,255,255,.2); font-style: normal; }
+
+  /* Progress */
+  .progress-bar {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: .85rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+  }
+  .step-item {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    flex-shrink: 0;
+  }
+  .step-dot {
+    width: 26px; height: 26px;
+    border-radius: 50%;
+    border: 1.5px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    color: var(--ink-soft);
+    font-weight: 500;
+    transition: all .3s;
+  }
+  .step-dot.active { background: var(--green-mid); border-color: var(--green-mid); color: #fff; }
+  .step-dot.done { background: var(--green-light); border-color: var(--green-light); color: #fff; }
+  .step-label { font-size: 12px; color: var(--ink-soft); white-space: nowrap; }
+  .step-label.active { color: var(--green-mid); font-weight: 500; }
+  .step-sep { width: 24px; height: 1px; background: var(--border); margin: 0 .25rem; flex-shrink: 0; }
+
+  /* Main layout */
+  .main { max-width: 720px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+
+  /* Section */
+  .form-section {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.75rem 1.75rem;
+    margin-bottom: 1.25rem;
+    display: none;
+  }
+  .form-section.active { display: block; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: .1em;
+    color: var(--green-mid);
+    font-weight: 500;
+    margin-bottom: .4rem;
+  }
+  .section-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: .35rem;
+  }
+  .section-desc {
+    font-size: 12px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--green-pale);
+  }
+
+  /* Form fields */
+  .field { margin-bottom: 1.1rem; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  label.field-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-mid);
+    margin-bottom: 6px;
+  }
+  .field-label .req { color: #c0392b; margin-left: 2px; }
+  input[type=text], input[type=tel], input[type=email], select, textarea {
+    width: 100%;
+    padding: 9px 12px;
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    font-size: 13px;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--ink);
+    background: var(--white);
+    transition: border-color .2s;
+    outline: none;
+  }
+  input:focus, select:focus, textarea:focus { border-color: var(--green-light); }
+  textarea { resize: vertical; min-height: 80px; }
+
+  /* Role cards */
+  .plan-group { margin-bottom: 1.5rem; }
+  .plan-group-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: .85rem;
+  }
+  .plan-dot { width: 8px; height: 8px; border-radius: 2px; }
+  .roles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+
+  .role-card {
+    border: 1.5px solid var(--border);
+    border-radius: 9px;
+    padding: .85rem 1rem;
+    cursor: pointer;
+    transition: all .2s;
+    position: relative;
+    background: var(--white);
+  }
+  .role-card:hover { border-color: var(--green-light); background: var(--green-mist); }
+  .role-card.selected { border-color: var(--green-mid); background: var(--green-pale); }
+  .role-card input[type=checkbox] { display: none; }
+  .role-card-check {
+    position: absolute;
+    top: 8px; right: 8px;
+    width: 18px; height: 18px;
+    border-radius: 4px;
+    border: 1.5px solid var(--border);
+    background: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px;
+    color: transparent;
+    transition: all .2s;
+  }
+  .role-card.selected .role-card-check {
+    background: var(--green-mid);
+    border-color: var(--green-mid);
+    color: #fff;
+  }
+  .role-card-icon { font-size: 18px; color: var(--ink-soft); margin-bottom: 6px; }
+  .role-card.selected .role-card-icon { color: var(--green-mid); }
+  .role-card-name { font-size: 12px; font-weight: 500; color: var(--ink); margin-bottom: 3px; }
+  .role-card-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 10px;
+    color: var(--ink-soft);
+    background: var(--bg);
+    padding: 2px 7px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+  }
+  .role-card-desc { font-size: 10px; color: var(--ink-soft); line-height: 1.55; }
+
+  /* Availability */
+  .avail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .avail-chip {
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: .6rem .75rem;
+    cursor: pointer;
+    text-align: center;
+    transition: all .2s;
+  }
+  .avail-chip:hover { border-color: var(--green-light); }
+  .avail-chip.selected { border-color: var(--green-mid); background: var(--green-pale); }
+  .avail-chip input[type=checkbox] { display: none; }
+  .avail-chip-label { font-size: 12px; color: var(--ink); font-weight: 500; }
+  .avail-chip-sub { font-size: 10px; color: var(--ink-soft); margin-top: 2px; }
+
+  /* Resource tags */
+  .resource-grid { display: flex; flex-wrap: wrap; gap: 7px; }
+  .res-tag {
+    border: 1.5px solid var(--border);
+    border-radius: 20px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-size: 12px;
+    color: var(--ink-mid);
+    transition: all .2s;
+  }
+  .res-tag:hover { border-color: var(--green-light); color: var(--green-mid); }
+  .res-tag.selected { border-color: var(--green-mid); background: var(--green-pale); color: var(--green-deep); font-weight: 500; }
+  .res-tag input[type=checkbox] { display: none; }
+
+  /* Notice box */
+  .notice-box {
+    background: var(--gold-light);
+    border: 1px solid #e8c84a;
+    border-radius: 8px;
+    padding: .85rem 1rem;
+    font-size: 12px;
+    color: #6b4a00;
+    line-height: 1.7;
+    margin-bottom: 1.25rem;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+  }
+  .notice-box svg { width: 16px; flex-shrink: 0; margin-top: 1px; }
+
+  /* Buttons */
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+  }
+  .btn-back {
+    padding: 9px 20px;
+    border: 1px solid var(--border);
+    background: transparent;
+    border-radius: 7px;
+    font-size: 13px;
+    color: var(--ink-soft);
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: all .2s;
+  }
+  .btn-back:hover { border-color: var(--ink-soft); color: var(--ink); }
+  .btn-next {
+    padding: 9px 28px;
+    border: none;
+    background: var(--green-mid);
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: background .2s;
+  }
+  .btn-next:hover { background: var(--green-deep); }
+  .btn-submit {
+    padding: 9px 28px;
+    border: none;
+    background: var(--green-deep);
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 500;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    transition: background .2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .btn-submit:hover { background: #0d2a0d; }
+
+  /* Summary */
+  .summary-block {
+    background: var(--green-mist);
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+  }
+  .summary-label { font-size: 11px; color: var(--ink-soft); margin-bottom: .35rem; }
+  .summary-val { font-size: 13px; color: var(--ink); font-weight: 500; line-height: 1.7; }
+  .summary-roles { display: flex; flex-wrap: wrap; gap: 6px; margin-top: .5rem; }
+  .summary-role-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    background: var(--green-pale);
+    color: var(--green-deep);
+    border: 1px solid var(--border);
+    font-weight: 500;
+  }
+
+  /* Success */
+  .success-screen {
+    text-align: center;
+    padding: 3rem 2rem;
+    display: none;
+  }
+  .success-icon {
+    width: 64px; height: 64px;
+    background: var(--green-pale);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 28px;
+    color: var(--green-mid);
+  }
+  .success-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: .6rem;
+  }
+  .success-sub { font-size: 13px; color: var(--ink-soft); line-height: 1.8; }
+  .success-detail {
+    margin: 1.5rem auto 0;
+    max-width: 420px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 1.25rem 1.5rem;
+    text-align: left;
+  }
+  .success-detail-label { font-size: 11px; color: var(--ink-soft); margin-bottom: .3rem; }
+  .success-detail-val { font-size: 13px; color: var(--ink); font-weight: 500; margin-bottom: 1rem; }
+  .success-detail-val:last-child { margin-bottom: 0; }
+
+  /* Print hint */
+  .print-hint {
+    text-align: center;
+    font-size: 11px;
+    color: var(--ink-soft);
+    margin-top: 1.5rem;
+  }
+  .print-hint button {
+    background: none; border: none; cursor: pointer;
+    color: var(--green-mid); font-size: 11px; text-decoration: underline;
+    font-family: 'Noto Sans TC', sans-serif;
+  }
+
+  @media (max-width: 540px) {
+    .field-row { grid-template-columns: 1fr; }
+    .roles-grid { grid-template-columns: 1fr; }
+    .avail-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media print {
+    .progress-bar, .btn-row, .print-hint { display: none; }
+    .form-section { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-tag">2028 – 2029 年度</div>
+  <div class="header-title">五工扶輪社<br>社友參與角色自選報名表</div>
+  <div class="header-sub">每位社友依個人時間與專業，選擇最適合的服務方式</div>
+  <div class="header-motto">
+    <span>希望傳承</span><i>·</i>
+    <span>智慧創新</span><i>·</i>
+    <span>幸福共好</span>
+  </div>
+</div>
+
+<div class="progress-bar" id="progressBar">
+  <div class="step-item">
+    <div class="step-dot active" id="dot1">1</div>
+    <span class="step-label active" id="lbl1">基本資料</span>
+  </div>
+  <div class="step-sep"></div>
+  <div class="step-item">
+    <div class="step-dot" id="dot2">2</div>
+    <span class="step-label" id="lbl2">選擇角色</span>
+  </div>
+  <div class="step-sep"></div>
+  <div class="step-item">
+    <div class="step-dot" id="dot3">3</div>
+    <span class="step-label" id="lbl3">時間與資源</span>
+  </div>
+  <div class="step-sep"></div>
+  <div class="step-item">
+    <div class="step-dot" id="dot4">4</div>
+    <span class="step-label" id="lbl4">確認送出</span>
+  </div>
+</div>
+
+<div class="main">
+
+  <!-- Step 1: Basic Info -->
+  <div class="form-section active" id="step1">
+    <div class="section-eyebrow">STEP 01</div>
+    <div class="section-title">基本資料</div>
+    <div class="section-desc">請填寫您的基本聯絡資訊，以便幹部後續媒合與通知。</div>
+
+    <div class="field field-row">
+      <div>
+        <label class="field-label">姓名<span class="req">*</span></label>
+        <input type="text" id="name" placeholder="王大明">
+      </div>
+      <div>
+        <label class="field-label">分類編號</label>
+        <input type="text" id="memberId" placeholder="例：WG-2025-042">
+      </div>
+    </div>
+
+    <div class="field field-row">
+      <div>
+        <label class="field-label">手機<span class="req">*</span></label>
+        <input type="tel" id="phone" placeholder="0912-345-678">
+      </div>
+      <div>
+        <label class="field-label">電子信箱</label>
+        <input type="email" id="email" placeholder="name@company.com">
+      </div>
+    </div>
+
+    <div class="field">
+      <label class="field-label">公司 / 行業別</label>
+      <input type="text" id="company" placeholder="例：○○製造有限公司 / 製造業">
+    </div>
+
+    <div class="field">
+      <label class="field-label">主要專業或擅長領域</label>
+      <input type="text" id="expertise" placeholder="例：機械工程、財務規劃、人力資源、行銷…">
+    </div>
+
+    <div class="notice-box">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/></svg>
+      填寫完畢後，幹部將依您所選角色進行媒合，並在 <strong>7 月底前</strong>以電話或 Line 通知確認。您可在年中依實際狀況調整參與角色。
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-next" onclick="goStep(2)">下一步：選擇角色 →</button>
+    </div>
+  </div>
+
+  <!-- Step 2: Role Selection -->
+  <div class="form-section" id="step2">
+    <div class="section-eyebrow">STEP 02</div>
+    <div class="section-title">選擇參與角色</div>
+    <div class="section-desc">請勾選您有意願擔任的角色，可複選。每個角色均已標示最低時間承諾，請放心依自身狀況選擇。</div>
+
+    <!-- Plan 1 -->
+    <div class="plan-group">
+      <div class="plan-group-title">
+        <div class="plan-dot" style="background:#4a9c4a"></div>
+        第一旗艦｜希望種子計畫（青少年教育）
+      </div>
+      <div class="roles-grid">
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="企業參訪主辦人">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🏭</div>
+          <div class="role-card-name">企業參訪主辦人</div>
+          <div class="role-card-time">⏱ 半天，一年一次</div>
+          <div class="role-card-desc">開放自家工廠或公司，安排半日導覽，由員工介紹產業知識</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="職涯講師">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🎤</div>
+          <div class="role-card-name">職涯講師</div>
+          <div class="role-card-time">⏱ 半天，一年一次</div>
+          <div class="role-card-desc">在成長營分享創業或職涯歷程，30～45 分鐘演講或座談</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="扶輪導師（輕量版）">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🤝</div>
+          <div class="role-card-name">扶輪導師（輕量版）</div>
+          <div class="role-card-time">⏱ 每季 30 分鐘</div>
+          <div class="role-card-desc">認養 1 位學生，每季一通電話或視訊，節日卡片鼓勵</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="頒獎典禮頒獎人">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🏅</div>
+          <div class="role-card-name">頒獎典禮頒獎人</div>
+          <div class="role-card-time">⏱ 2 小時，一年一次</div>
+          <div class="role-card-desc">親手交遞獎狀，簡短致詞，與學生拍攝紀念照</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Plan 2 -->
+    <div class="plan-group">
+      <div class="plan-group-title">
+        <div class="plan-dot" style="background:#378ADD"></div>
+        第二旗艦｜幸福守護網（高齡關懷）
+      </div>
+      <div class="roles-grid">
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="居家安全稽核員">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🏠</div>
+          <div class="role-card-name">居家安全稽核員</div>
+          <div class="role-card-time">⏱ 半天，每季一次</div>
+          <div class="role-card-desc">與社工同行，用標準表單評估長者家中安全，不需專業背景</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="工程資源媒合人">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🔧</div>
+          <div class="role-card-name">工程資源媒合人</div>
+          <div class="role-card-time">⏱ 電話聯繫，不定期</div>
+          <div class="role-card-desc">媒合施工廠商，協助降低居家改善成本（適合營建業社友）</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="電話關懷志工">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">📞</div>
+          <div class="role-card-name">電話關懷志工</div>
+          <div class="role-card-time">⏱ 每月 20 分鐘</div>
+          <div class="role-card-desc">認養 2～3 位長者，每月主動致電問候，回報異常給社工</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="SOS 網絡聯絡人">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🌐</div>
+          <div class="role-card-name">SOS 網絡聯絡人</div>
+          <div class="role-card-time">⏱ 一次性引薦</div>
+          <div class="role-card-desc">協助與所在區域里長或衛生所建立聯繫，運用人脈打通資源</div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Plan 3 -->
+    <div class="plan-group">
+      <div class="plan-group-title">
+        <div class="plan-dot" style="background:#BA7517"></div>
+        第三旗艦｜夢想實現計畫（公益圓夢）
+      </div>
+      <div class="roles-grid">
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="夢想評審委員">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">⭐</div>
+          <div class="role-card-name">夢想評審委員</div>
+          <div class="role-card-time">⏱ 半天，一年一次</div>
+          <div class="role-card-desc">參與 10 月評選會，閱讀提案並評分，給予書面或當面回饋</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="夢想認養導師">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">💛</div>
+          <div class="role-card-name">夢想認養導師</div>
+          <div class="role-card-time">⏱ 每月 1～2 次陪伴</div>
+          <div class="role-card-desc">認養一個夢想案，全程陪伴執行，協助解決障礙，不必親力親為</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="資源媒合者">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🔗</div>
+          <div class="role-card-name">資源媒合者</div>
+          <div class="role-card-time">⏱ 視需要，不定期</div>
+          <div class="role-card-desc">當執行遇到障礙，發動人脈提供廠商、場地或技術支援</div>
+        </label>
+        <label class="role-card" onclick="toggleCard(this)">
+          <input type="checkbox" value="影片故事見證人">
+          <div class="role-card-check">✓</div>
+          <div class="role-card-icon">🎬</div>
+          <div class="role-card-name">影片故事見證人</div>
+          <div class="role-card-time">⏱ 拍攝 1 小時</div>
+          <div class="role-card-desc">在紀錄影片中分享認養心得，成為計畫對外的品牌代言人</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goStep(1)">← 上一步</button>
+      <button class="btn-next" onclick="goStep(3)">下一步：時間與資源 →</button>
+    </div>
+  </div>
+
+  <!-- Step 3: Availability & Resources -->
+  <div class="form-section" id="step3">
+    <div class="section-eyebrow">STEP 03</div>
+    <div class="section-title">時間偏好與可貢獻資源</div>
+    <div class="section-desc">讓幹部更了解您的狀況，以便安排最合適的活動時段與任務。</div>
+
+    <div class="field">
+      <label class="field-label">方便出席的時段<span class="req">*</span>（可複選）</label>
+      <div class="avail-grid" id="availGrid">
+        <label class="avail-chip" onclick="toggleChip(this)">
+          <input type="checkbox" value="平日白天">
+          <div class="avail-chip-label">平日白天</div>
+          <div class="avail-chip-sub">09:00–17:00</div>
+        </label>
+        <label class="avail-chip" onclick="toggleChip(this)">
+          <input type="checkbox" value="平日傍晚">
+          <div class="avail-chip-label">平日傍晚</div>
+          <div class="avail-chip-sub">17:00–20:00</div>
+        </label>
+        <label class="avail-chip" onclick="toggleChip(this)">
+          <input type="checkbox" value="週六上午">
+          <div class="avail-chip-label">週六上午</div>
+          <div class="avail-chip-sub">09:00–12:00</div>
+        </label>
+        <label class="avail-chip" onclick="toggleChip(this)">
+          <input type="checkbox" value="週六下午">
+          <div class="avail-chip-label">週六下午</div>
+          <div class="avail-chip-sub">13:00–17:00</div>
+        </label>
+        <label class="avail-chip" onclick="toggleChip(this)">
+          <input type="checkbox" value="週日">
+          <div class="avail-chip-label">週日</div>
+          <div class="avail-chip-sub">彈性時段</div>
+        </label>
+        <label class="avail-chip" onclick="toggleChip(this)">
+          <input type="checkbox" value="遠端即可">
+          <div class="avail-chip-label">遠端即可</div>
+          <div class="avail-chip-sub">視訊或 Line</div>
+        </label>
+      </div>
+    </div>
+
+    <div class="field" style="margin-top:1.25rem">
+      <label class="field-label">每年可投入服務的總時數（粗估）</label>
+      <select id="totalHours">
+        <option value="">請選擇</option>
+        <option value="4小時以內">4 小時以內（最輕量）</option>
+        <option value="4–10小時">4～10 小時</option>
+        <option value="10–20小時">10～20 小時</option>
+        <option value="20小時以上">20 小時以上</option>
+      </select>
+    </div>
+
+    <div class="field" style="margin-top:1.25rem">
+      <label class="field-label">可貢獻的資源或人脈（可複選）</label>
+      <div class="resource-grid" id="resourceGrid">
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="製造業廠商人脈">製造業廠商人脈</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="營建／水電人脈">營建／水電人脈</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="醫療衛生資源">醫療衛生資源</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="教育訓練場地">教育訓練場地</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="里鄰社區人脈">里鄰社區人脈</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="媒體宣傳">媒體宣傳</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="攝影錄影技術">攝影錄影技術</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="法律財務顧問">法律財務顧問</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="餐飲贊助">餐飲贊助</label>
+        <label class="res-tag" onclick="toggleTag(this)"><input type="checkbox" value="交通接送">交通接送</label>
+      </div>
+    </div>
+
+    <div class="field" style="margin-top:1.25rem">
+      <label class="field-label">補充說明或特殊需求</label>
+      <textarea id="notes" placeholder="例：我的工廠在五股，適合安排企業參訪；或：希望盡量安排在週末…"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goStep(2)">← 上一步</button>
+      <button class="btn-next" onclick="goStep(4)">下一步：確認送出 →</button>
+    </div>
+  </div>
+
+  <!-- Step 4: Review & Submit -->
+  <div class="form-section" id="step4">
+    <div class="section-eyebrow">STEP 04</div>
+    <div class="section-title">確認報名資料</div>
+    <div class="section-desc">請確認以下資料正確後送出，幹部將在 7 月底前與您聯繫確認。</div>
+
+    <div class="summary-block">
+      <div class="summary-label">姓名 / 聯絡方式</div>
+      <div class="summary-val" id="sumBasic">—</div>
+    </div>
+
+    <div class="summary-block">
+      <div class="summary-label">選擇的參與角色</div>
+      <div class="summary-roles" id="sumRoles"></div>
+    </div>
+
+    <div class="summary-block">
+      <div class="summary-label">可出席時段 / 預估時數</div>
+      <div class="summary-val" id="sumTime">—</div>
+    </div>
+
+    <div class="summary-block">
+      <div class="summary-label">可貢獻資源</div>
+      <div class="summary-val" id="sumResources">—</div>
+    </div>
+
+    <div id="sumNotesBlock" class="summary-block" style="display:none">
+      <div class="summary-label">補充說明</div>
+      <div class="summary-val" id="sumNotes"></div>
+    </div>
+
+    <div class="notice-box" style="margin-top:1rem">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+      送出後您仍可在 <strong>8 月 15 日前</strong>聯繫幹部調整角色。社長及執行秘書將依報名狀況統籌分配，確保每位社友都能以最舒適的方式參與。
+    </div>
+
+    <div class="btn-row">
+      <button class="btn-back" onclick="goStep(3)">← 上一步</button>
+      <button class="btn-submit" onclick="submitForm()">
+        <svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        確認送出報名
+      </button>
+    </div>
+  </div>
+
+  <!-- Success -->
+  <div class="success-screen" id="successScreen">
+    <div class="success-icon">✓</div>
+    <div class="success-title">報名成功，感謝您！</div>
+    <div class="success-sub">
+      您的參與意願已登錄。<br>
+      幹部將於 7 月底前以電話或 Line 與您確認角色細節。<br>
+      期待與您一起讓這個年度成為五工最有溫度的一年。
+    </div>
+    <div class="success-detail">
+      <div class="success-detail-label">姓名</div>
+      <div class="success-detail-val" id="successName">—</div>
+      <div class="success-detail-label">選擇角色</div>
+      <div class="summary-roles" id="successRoles"></div>
+    </div>
+    <div class="print-hint">
+      <button onclick="window.print()">列印或儲存此頁面</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+let currentStep = 1;
+
+function goStep(n) {
+  if (n === 4) buildSummary();
+  document.getElementById('step' + currentStep).classList.remove('active');
+  document.getElementById('step' + n).classList.add('active');
+  currentStep = n;
+  updateProgress(n);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function updateProgress(n) {
+  for (let i = 1; i <= 4; i++) {
+    const dot = document.getElementById('dot' + i);
+    const lbl = document.getElementById('lbl' + i);
+    dot.className = 'step-dot';
+    lbl.className = 'step-label';
+    if (i < n) { dot.classList.add('done'); dot.textContent = '✓'; }
+    else if (i === n) { dot.classList.add('active'); lbl.classList.add('active'); dot.textContent = i; }
+    else { dot.textContent = i; }
+  }
+}
+
+function toggleCard(el) {
+  el.classList.toggle('selected');
+  el.querySelector('input').checked = el.classList.contains('selected');
+}
+
+function toggleChip(el) {
+  el.classList.toggle('selected');
+  el.querySelector('input').checked = el.classList.contains('selected');
+}
+
+function toggleTag(el) {
+  el.classList.toggle('selected');
+  el.querySelector('input').checked = el.classList.contains('selected');
+}
+
+function getSelected(containerId) {
+  return Array.from(document.querySelectorAll('#' + containerId + ' input:checked')).map(i => i.value);
+}
+
+function buildSummary() {
+  const name = document.getElementById('name').value || '（未填）';
+  const phone = document.getElementById('phone').value || '—';
+  const email = document.getElementById('email').value;
+  document.getElementById('sumBasic').textContent = name + '　' + phone + (email ? '　' + email : '');
+
+  const roles = Array.from(document.querySelectorAll('.role-card.selected input')).map(i => i.value);
+  const rolesEl = document.getElementById('sumRoles');
+  rolesEl.innerHTML = roles.length ? roles.map(r => `<span class="summary-role-tag">${r}</span>`).join('') : '<span style="font-size:12px;color:var(--ink-soft)">尚未選擇角色</span>';
+
+  const times = getSelected('availGrid');
+  const hours = document.getElementById('totalHours').value;
+  document.getElementById('sumTime').textContent = (times.join('、') || '—') + (hours ? '　預估 ' + hours : '');
+
+  const res = getSelected('resourceGrid');
+  document.getElementById('sumResources').textContent = res.length ? res.join('、') : '—';
+
+  const notes = document.getElementById('notes').value;
+  if (notes) {
+    document.getElementById('sumNotesBlock').style.display = 'block';
+    document.getElementById('sumNotes').textContent = notes;
+  }
+}
+
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxzfh6XZ_F5ujmCwe75g-LG_jEvMGdBRM6t7Hx5bjSW6dQFFnzU_IzGcMR3miQXJxVNHg/exec";
+
+async function submitForm() {
+  const submitBtn = document.querySelector('.btn-submit');
+  submitBtn.disabled = true;
+  submitBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/></svg> 傳送中…';
+
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const company = document.getElementById('company').value;
+  const expertise = document.getElementById('expertise').value;
+  const memberId = document.getElementById('memberId').value;
+  const roles = Array.from(document.querySelectorAll('.role-card.selected input')).map(i => i.value).join('、');
+  const availability = Array.from(document.querySelectorAll('#availGrid input:checked')).map(i => i.value).join('、');
+  const totalHours = document.getElementById('totalHours').value;
+  const resources = Array.from(document.querySelectorAll('#resourceGrid input:checked')).map(i => i.value).join('、');
+  const notes = document.getElementById('notes').value;
+
+  const payload = { name, phone, email, company, expertise, memberId, roles, availability, totalHours, resources, notes };
+
+  try {
+    await fetch(APPS_SCRIPT_URL, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    showSuccess(name, roles);
+  } catch (err) {
+    submitBtn.disabled = false;
+    submitBtn.innerHTML = '<svg width="14" height="14" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 確認送出報名';
+    alert('送出失敗，請稍後再試或聯繫幹部。\n錯誤：' + err.message);
+  }
+}
+
+function showSuccess(name, roles) {
+  document.getElementById('step4').classList.remove('active');
+  document.getElementById('successScreen').style.display = 'block';
+  document.getElementById('successName').textContent = name || '社友';
+
+  const rolesArr = roles ? roles.split('、') : [];
+  const el = document.getElementById('successRoles');
+  el.innerHTML = rolesArr.length ? rolesArr.map(r => `<span class="summary-role-tag">${r}</span>`).join('') : '<span style="font-size:12px;color:var(--ink-soft)">（未選擇角色）</span>';
+
+  updateProgress(5);
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
